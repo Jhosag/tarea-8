@@ -1,49 +1,50 @@
 #include <iostream>
 #include "Estudiante.h"
+
 using namespace std;
 int main()
 {
 	string codigo, nombres, apellidos, direccion, fecha_nacimiento;
-	int telefono=0, id_tipo_sangre=0, id_estudiante=0;
-	cout << "Ingrese el codigo del estudiante: ";
+	int telefono = 0, id_tipo_sangre = 0, id_estudiante = 0;
+	cout << "Ingrese el codigo: " << endl;
 	cin >> codigo;
 	cin.ignore();
-	cout << "Ingrese nombres del estudiante: ";
+	cout << "Ingrese los nombres: " << endl;
 	getline(cin, nombres);
-	cout << "Ingrese apellidos del estudiante: ";
+	cout << "Ingrese los apellidos: " << endl;
 	getline(cin, apellidos);
-	cout << "Ingrese direccion del estudiante: ";
+	cout << "Ingrese la direccion: " << endl;
 	getline(cin, direccion);
-	cout << "Ingrese telefono del estudiante: ";
+	cout << "Ingrese el telefono: " << endl;
 	cin >> telefono;
 	cin.ignore();
-	cout << "Ingrese fecha de nacimiento del estudiante: ";
+	cout << "Ingrese la fecha de nacimiento: " << endl;
 	getline(cin, fecha_nacimiento);
-	cout << "Ingrese tipo de sangre del estudiante: ";
+	cout << "Ingrese el id del tipo de sangre: " << endl;
 	cin >> id_tipo_sangre;
 
-	Estudiante e = Estudiante(codigo, nombres, apellidos, direccion, telefono, fecha_nacimiento, id_tipo_sangre, id_estudiante);
+	Estudiante e = Estudiante(nombres, apellidos, direccion, telefono, fecha_nacimiento, id_tipo_sangre, codigo, id_estudiante);
 	e.crear();
 	e.leer();
-
-	// Actualizacion
-	cout << "Ingrese el ID a modificar:";
+	
+	//actualizar 
+	cout << "Ingrese el ID a modificar: ";
 	cin >> id_estudiante;
-	cout << "Ingrese Codigo:";
+	cout << "Ingrese el codigo: " << endl;
 	cin >> codigo;
 	cin.ignore();
-	cout << "Ingres Nombres:";
+	cout << "Ingrese los nombres: " << endl;
 	getline(cin, nombres);
-	cout << "Ingres Apellidos:";
+	cout << "Ingrese los apellidos: " << endl;
 	getline(cin, apellidos);
-	cout << "Ingres Direccion:";
+	cout << "Ingrese la direccion: " << endl;
 	getline(cin, direccion);
-	cout << "Ingrese Telefono:";
+	cout << "Ingrese el telefono: " << endl;
 	cin >> telefono;
 	cin.ignore();
-	cout << "Ingres Fecha Nacimiento:";
+	cout << "Ingrese la fecha de nacimiento: " << endl;
 	getline(cin, fecha_nacimiento);
-	cout << "Ingrese Tipo Sangre:";
+	cout << "Ingrese el id del tipo de sangre: " << endl;
 	cin >> id_tipo_sangre;
 
 	e.setId_estudiante(id_estudiante);
@@ -56,10 +57,12 @@ int main()
 	e.setId_Tipo_Sangre(id_tipo_sangre);
 	e.actualizar();
 	e.leer();
-	cout << "Ingrese el ID a Eliminar:";
+
+	cout << "Ingrese el ID a Eliminar: ";
 	cin >> id_estudiante;
 	e.setId_estudiante(id_estudiante);
 	e.borrar();
 	e.leer();
-}
 
+}
+ 
