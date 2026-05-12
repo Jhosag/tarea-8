@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="vista/vista.vcxproj" />
+  <Project Path="vista/vista.vcxproj" Id="09192487-a9f7-4c54-ba68-88f2cc6f201c" />
 </Solution>
