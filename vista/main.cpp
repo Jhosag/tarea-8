@@ -26,7 +26,8 @@ int main() {
 
         switch (opcion) {
 
-        case 1: 
+        case 1:
+            cout << "************************" << endl;
             cout << "    CREAR ESTUDIANTE    " << endl;
             cout << "************************" << endl;
             cout << "Ingrese el codigo: ";
@@ -42,20 +43,20 @@ int main() {
             getline(cin, telefono);
             cout << "Ingrese la fecha de nacimiento (AAAA-MM-DD): ";
             getline(cin, fecha_nacimiento);
+            e.mostrarTiposSangre();
             cout << "Ingrese el id del tipo de sangre: ";
             cin >> id_tipo_sangre;
             cin.ignore();
-
             e = Estudiante(nombres, apellidos, direccion, telefono, fecha_nacimiento, id_tipo_sangre, codigo, 0);
             e.crear();
             break;
-
         case 2: 
             e.leer();
             break;
 
-        case 3:
-            cout << "    MODIFICAR ESTUDIANTE    " << endl;
+        case 3: 
+            cout << "************************" << endl;
+            cout << "  MODIFICAR ESTUDIANTE  " << endl;
             cout << "************************" << endl;
             cout << "Ingrese el ID a modificar: ";
             cin >> id_estudiante;
@@ -73,6 +74,8 @@ int main() {
             getline(cin, telefono);
             cout << "Ingrese la fecha de nacimiento (AAAA-MM-DD): ";
             getline(cin, fecha_nacimiento);
+            
+            e.mostrarTiposSangre();
             cout << "Ingrese el id del tipo de sangre: ";
             cin >> id_tipo_sangre;
             cin.ignore();
@@ -89,9 +92,9 @@ int main() {
             break;
 
         case 4: 
-            cout << "==============================" << endl;
-            cout << "      BORRAR ESTUDIANTE       " << endl;
-            cout << "==============================" << endl;
+            cout << "************************" << endl;
+            cout << "   BORRAR ESTUDIANTE    " << endl;
+            cout << "************************" << endl;
             cout << "Ingrese el ID a eliminar: ";
             cin >> id_estudiante;
             cin.ignore();

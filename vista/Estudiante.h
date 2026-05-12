@@ -305,6 +305,25 @@ public:
     string getFecha_Nacimiento() { return fecha_nacimiento; }
     int getId_Tipo_Sangre() { return id_tipo_sangre; }
 
+    void mostrarTiposSangre() {
+        ConexionBD cn = ConexionBD();
+        cn.abrir_conexion();
+        if (cn.getConector()) {
+            string consulta = "SELECT id_tipo_sangre, sangre FROM tipos_sangre;";
+            mysql_query(cn.getConector(), consulta.c_str());
+            MYSQL_RES* resultado = mysql_store_result(cn.getConector());
+            MYSQL_ROW fila;
+            cout << "------------------------------" << endl;
+            cout << "   TIPOS DE SANGRE            " << endl;
+            cout << "------------------------------" << endl;
+            while (fila = mysql_fetch_row(resultado)) {
+                cout << fila[0] << ". " << fila[1] << endl;
+            }
+            cout << "------------------------------" << endl;
+            mysql_free_result(resultado);
+        }
+        cn.cerrar_conexion();
+    }
     bool buscarPorId(int id) {
         ConexionBD cn = ConexionBD();
         cn.abrir_conexion();
