@@ -116,6 +116,7 @@ private:
     }
 
     bool ValidarFechaNacimiento(const string& fecha) {
+        string ferror = "Error: El formato o la fecha ingresada no es valida (AAAA-MM-DD).";
         if (fecha.empty()) {
             cout << "Error: La fecha de nacimiento no puede estar vacia." << endl;
             return false;
@@ -123,7 +124,7 @@ private:
         regex patron("^([0-9]{4})-([0-9]{2})-([0-9]{2})$");
         smatch match;
         if (!regex_match(fecha, match, patron)) {
-            cout << "Error: La fecha debe tener el formato AAAA-MM-DD." << endl;
+            cout << ferror << endl;
             return false;
         }
         int anio = stoi(match[1]);
@@ -226,7 +227,7 @@ public:
     Estudiante() {}
     Estudiante(string nom, string ape, string dir, string tel, string fn, int id_ts, string cod, int id_e)
         : Persona(nom, ape, dir, 0, fn, id_ts) {
-        if (ValidarCodigo(cod)) {
+        if (CodigoValido(cod)) {
             codigo = cod;
         }
         else {
